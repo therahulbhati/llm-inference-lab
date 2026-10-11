@@ -1,0 +1,30 @@
+[project]
+name = "inferlab"
+version = "0.1.0"
+description = "A minimal LLM inference engine built from scratch"
+readme = "README.md"
+authors = [
+    { name = "Rahul Bhati", email = "rjbhati009@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "huggingface-hub",
+    "safetensors",
+    "torch",
+    "transformers",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.8,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "model: needs downloaded Qwen2.5-0.5B weights",
+]
